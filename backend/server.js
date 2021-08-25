@@ -1,7 +1,7 @@
-/* const path = require('path'); */
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -16,8 +16,6 @@ const port = process.env.PORT || 5000;  //PORTA SU CUI ABBIAMO IL SERVER, SE NON
 app.use(cors());
 app.use(express.json());
 /* app.use(express.urlencoded({ extended: true })); */
-
-
 
 //MONGODB E MONGOOSE
 const uri = process.env.ATLAS_URI;  //LINK PER IL NOSTRO DATABASE MONGODB ATLAS
@@ -40,6 +38,15 @@ app.use('/rules', rulesRouter);
         res.sendFile(path.join(__dirname, '../build', 'index.html'))
     });
 } */
+
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./build", "index.html"));
+});
+
 
 // METTIAMO IL SERVER IN ASCOLTO SULLA PORTA CHE ABBIAMO SCELTO
 app.listen(port, () => {

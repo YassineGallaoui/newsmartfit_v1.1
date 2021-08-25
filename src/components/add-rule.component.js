@@ -352,7 +352,6 @@ export default class AddRule extends Component {
     }
 
     filterAthletes() {
-        console.log("filteraAthletes è stata chiamata")
         //QUA CERCO DI CAPIRE QUALI ATLETI RIENTRANO NELLE CONDIZIONI RICHIESTE.
         let condizioni = this.state.conditions;
 

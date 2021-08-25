@@ -7,7 +7,7 @@ let Athlete = require('../models/athlet.model');
 //QUANDO VOGLIO VISUALIZZARE LA LISTA DI ATLETI
 router.route('/').get((req, res) => {    
     Athlete.find()
-    .then(athlete => {res.json(athlete); console.log('richiesta fatta andata a buon fine')})
+    .then(athlete => {res.json(athlete);})
     .catch(err => {res.status(400).json('Error: '+err); console.log('richiesta fatta con errore')});
 })
 
