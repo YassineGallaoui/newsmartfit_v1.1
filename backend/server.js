@@ -48,13 +48,6 @@ app.use('/rules', rulesRouter);
 /* app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./build", "index.html"));
 }); */
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("build"));
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname,  "build", "index.html"));
-    });
-}
-
 
 //FOR LOCAL DEVELOPMENT: 
 module.exports = function(app) {
@@ -62,6 +55,13 @@ module.exports = function(app) {
         createProxyMiddleware(["/*"], { target: "http://localhost:5000" })
     );
 };
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("build"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname,  "build", "index.html"));
+    });
+}
 
 
 // METTIAMO IL SERVER IN ASCOLTO SULLA PORTA CHE ABBIAMO SCELTO
