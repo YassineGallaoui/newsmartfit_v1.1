@@ -1,3 +1,25 @@
+html {
+  font-size: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  html {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 1rem;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +29,81 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  min-height: 90vh;
 }
+
+/* PER RENDERE RESPONSIVE GRAFICI */
+canvas{height:35vh !important;}
+
+
+
+/* ALL CARDS */
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  /* font-size: 15px; */
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+
+
+/* IN MOOD */
+.tabellaMoodDate{
+  text-align:center;
+}
+
+.tabellaMoodDateText{
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+.tabellaMoodDate2{
+  text-align:center;
+}
+
+#selectVal2 {display: none;}
+
+#selectValMood {display: none;}
+
+#selectSecondValMood {display: none;}
+
+#selectTemporalVal2 {display: none;}
+
+
+
+/* IN ADD AND UPDATE RULES */
+#linkSelection {display: none;}
+
+#temporalLinkSelection {display: none;}
