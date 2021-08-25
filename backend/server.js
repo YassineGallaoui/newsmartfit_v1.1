@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 
 require('dotenv').config();
 
@@ -46,6 +48,12 @@ app.use(express.static(path.resolve(__dirname, "./build")));
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./build", "index.html"));
 });
+
+module.exports = function(app) {
+    app.use(
+        createProxyMiddleware(["/*"], { target: "http://localhost:5000" })
+    );
+};
 
 
 // METTIAMO IL SERVER IN ASCOLTO SULLA PORTA CHE ABBIAMO SCELTO
