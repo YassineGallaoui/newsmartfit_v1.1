@@ -5,7 +5,7 @@ if(process.env.NODE_ENV !== "production") {
     app.use(
       '/athletes',
       createProxyMiddleware({
-        target: 'http://localhost:5000',
+        target: 'http://127.0.0.1:5000',
         changeOrigin: true,
       })
     );
@@ -13,7 +13,7 @@ if(process.env.NODE_ENV !== "production") {
     app.use(
       '/rules',
       createProxyMiddleware({
-        target: 'http://localhost:5000',
+        target: 'http://127.0.0.1:5000',
         changeOrigin: true,
       })
     );
