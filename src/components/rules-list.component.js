@@ -88,8 +88,8 @@ const RuleBigDiv = props => (
     </div>
 )
 
-/* const baseUrl = process.env.NODE_ENV === 'production' ? `https://newsmartfitv1.herokuapp.com:${process.env.PORT}` : `http://localhost:${process.env.PORT}`; */
-const baseUrl = `https://newsmartfitv1.herokuapp.com`
+
+
 
 export default class RulesList extends Component {
 
@@ -103,7 +103,7 @@ export default class RulesList extends Component {
     }
 
     componentDidMount() {
-        axios.get(baseUrl+'/rules/')
+        axios.get('/rules/')
             .then(response => {
                 this.setState({ rules: response.data });
                 window.collapsibleDivs();
@@ -112,7 +112,7 @@ export default class RulesList extends Component {
                 console.log(error);
             })
 
-        axios.get(baseUrl+'/athletes/')
+        axios.get('/athletes/')
             .then(response => {
                 this.setState({ athletes: response.data });
             })
@@ -122,7 +122,7 @@ export default class RulesList extends Component {
     }
 
     deleteRule(id) {
-        axios.delete(baseUrl+'/rules/' + id)
+        axios.delete('/rules/' + id)
             .then(response => {
                 console.log("Rule " + id + " eliminated");
                 this.setState({

@@ -12,9 +12,9 @@ const AthleteRow = props => (
     </tr>
 )
 
-/* const baseUrl = process.env.NODE_ENV === 'production' ? `https://newsmartfitv1.herokuapp.com:${process.env.PORT}` : `http://localhost:${process.env.PORT}`; */
-const baseUrl = `https://newsmartfitv1.herokuapp.com`;
-console.log(baseUrl+'/athletes/')
+
+;
+console.log('/athletes/')
 
 export default class AthletesList extends Component {
 
@@ -25,7 +25,7 @@ export default class AthletesList extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${baseUrl}/athletes/`)
+        axios.get('/athletes/')
             .then(response => {
                 this.setState({ athletes: response.data })
             })
