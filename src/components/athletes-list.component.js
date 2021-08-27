@@ -13,6 +13,7 @@ const AthleteRow = props => (
 )
 
 const baseUrl = process.env.NODE_ENV === 'production' ? `https://newsmartfitv1.herokuapp.com:${process.env.PORT}` : `http://localhost:${process.env.PORT}`;
+console.log(baseUrl+'/athletes/')
 
 export default class AthletesList extends Component {
 
