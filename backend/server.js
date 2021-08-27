@@ -28,7 +28,7 @@ connection.once('open', () => {
 })
 
 
-app.get('/ciao', (req, res) => { res.send('Ciao carissimo!')})
+app.use('/ciao', (req, res) => { res.send('Ciao carissimo!')})
 
 
 // HTTP REQUEST LOGGER
