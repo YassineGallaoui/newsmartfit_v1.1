@@ -1,6 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-console.log(process.env.NODE_ENV)
+console.log("ciao, il node inv è: " + process.env.NODE_ENV)
 if(process.env.NODE_ENV !== "production") {
   module.exports = function(app) {
     app.use(
