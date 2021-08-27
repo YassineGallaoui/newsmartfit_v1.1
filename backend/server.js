@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+/* const cors = require('cors'); */
 const mongoose = require('mongoose');
 const path = require('path');
 require('dotenv').config();
@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 
 
 // SETTIAMO MIDDLEWARE
-app.use(cors());
+/* app.use(cors()); */ // no need for it because backend and frontend run on the same port
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
@@ -44,11 +44,15 @@ app.use('/rules', rulesRouter);
 
 // FOR PRODUCTION:
 // Step 1:
-app.use(express.static(path.resolve(__dirname, "./build")));
+
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
+
+/* app.use(express.static(path.resolve(__dirname, "./build")));
 // Step 2:
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./build", "index.html"));
-});
+}); */
 
 
 
