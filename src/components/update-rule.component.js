@@ -6,7 +6,8 @@ let exampleText = `You should:
         - ...
         `
 
-const baseUrl = process.env.NODE_ENV === 'production' ? `https://newsmartfitv1.herokuapp.com:${process.env.PORT}` : `http://localhost:${process.env.PORT}`;
+/* const baseUrl = process.env.NODE_ENV === 'production' ? `https://newsmartfitv1.herokuapp.com:${process.env.PORT}` : `http://localhost:${process.env.PORT}`; */
+const baseUrl = `https://newsmartfitv1.herokuapp.com`
 
 export default class UpdateRule extends Component {
     constructor(props) {
