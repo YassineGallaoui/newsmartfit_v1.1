@@ -5,7 +5,7 @@ import axios from 'axios';
 const AthleteRow = props => (
     <tr>
         <td>
-            <Link to={"/" + props.athlete._id}>
+            <Link to={"/" + props.athlete._id} className="h5 text-decoration-none">
                 {props.athlete.name}
             </Link>
         </td>

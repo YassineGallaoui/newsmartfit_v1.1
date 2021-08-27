@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch } from "react-router-dom";
+import {HashRouter, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import Header from "./components/header.component"
@@ -12,7 +12,7 @@ import UpdateRule from "./components/update-rule.component"
 
 function App() {
   return (
-      <BrowserRouter>
+      <HashRouter>
         <Header></Header>
         <Navbar></Navbar>
         <br/>
@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/:id" component={DetailsAthlete}/>
           <Route exact path="/" component={AthletesList}/>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 

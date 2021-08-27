@@ -14,8 +14,8 @@ const RuleBigDiv = props => (
 
                                 
                                 <div className="order-md-last col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3">
-                                    <button type="button" className="btn btn-outline-danger float-left float-md-right ml-xl-3 mb-3" onClick={() => { if (window.confirm('Sure you want to delete this rule?')) props.delete(props.rule._id) }}>Delete Rule</button>
-                                    <Link to={"/rules/update/" + props.rule._id}><button type="button" className="btn btn-outline-warning float-left float-md-right ml-3">Edit Rule</button></Link>
+                                    <button type="button" className="btn btn-outline-danger float-left float-md-right ml-xl-3" onClick={() => { if (window.confirm('Sure you want to delete this rule?')) props.delete(props.rule._id) }} style={{float: 'right'}}>Delete Rule</button>
+                                    <Link to={"/rules/update/" + props.rule._id}><button type="button" className="btn btn-outline-warning float-left float-md-right mt-2" style={{ marginLeft: '10px', float: 'right'}}>Edit Rule</button></Link>
                                 </div>
 
                                 <div className="col-sm-12 col-md-5 col-lg-5 col-xl- mb-3">
@@ -143,7 +143,7 @@ export default class RulesList extends Component {
     render() {
         return (
             <div>
-                <h2>
+                <h2 className="d-flex justify-content-between align-center">
                     Your Rules
                     <Link to={"/rules/add"}><button type="button" className="float-right btn btn-outline-primary">New rule</button></Link>
                 </h2>

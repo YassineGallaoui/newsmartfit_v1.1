@@ -202,7 +202,7 @@ export default class AddRule extends Component {
             return (
                 <div
                     type="text"
-                    className="p-3 mb-2 bg-light"
+                    className="p-3 mb-2 bg-light d-flex justify-content-between align-center"
                     key={currentathleteId}>
                     <em>{currentathleteId}</em>
                     <button type="button" className="btn btn-outline-danger btn-sm ml-4" onClick={() => { this.onRemoveAthleteId(currentathleteId) }}>Remove</button>
@@ -504,7 +504,7 @@ export default class AddRule extends Component {
         if (this.state.askResult.length > 0) {
             return (
                 <div>
-                    <div className="container mt-3 py-3 text-dark rounded">
+                    <div className="container mt-3 py-3 text-dark rounded d-flex justify-content-between align-center">
                         <b>Suggested Athletes:</b>
                         <button type="button"
                             className="btn btn-outline-success mt-n2 mr-3 float-right"
@@ -515,7 +515,7 @@ export default class AddRule extends Component {
 
                     {this.state.askResult.map((currentResult, index) => {
                         return (
-                            <div className=" bg-light p-3 mb-2" key={currentResult._id}>
+                            <div className=" bg-light p-3 mb-2 d-flex justify-content-between align-center" key={currentResult._id}>
                                 <em>{currentResult.name + " ~ " + currentResult._id}</em>
                                 {this.putButtonOrNot(currentResult.name + " ~ " + currentResult._id)}
                             </div>
@@ -547,10 +547,12 @@ export default class AddRule extends Component {
                 <span>
                     <div
                         type="text"
-                        className="p-3 mb-2 bg-light"
+                        className="p-3 mb-2 bg-light d-flex justify-content-between align-center"
                         key={currentCondition.type + currentCondition.value1}>
-                        {index === 0 ? ("    ") : (<b><em>{currentCondition.link + " "}</em></b>)}
-                        <em>{currentCondition.type + " is " + currentCondition.operator + " " + currentCondition.value1 + (currentCondition.value2 === "" ? "" : (" and " + currentCondition.value2))}</em>
+                        <span>
+                            {index === 0 ? ("    ") : (<b><em>{currentCondition.link + " "}</em></b>)}
+                            <em>{currentCondition.type + " is " + currentCondition.operator + " " + currentCondition.value1 + (currentCondition.value2 === "" ? "" : (" and " + currentCondition.value2))}</em>
+                        </span>
                         <button type="button" className="btn btn-outline-danger btn-sm ml-4" onClick={() => { this.onRemoveCondition(currentCondition.type, currentCondition.op, currentCondition.value1, currentCondition.value2) }}>Remove</button>
                     </div>
                 </span>
@@ -669,7 +671,7 @@ export default class AddRule extends Component {
                 <span>
                     <div
                         type="text"
-                        className="p-3 mb-2 bg-light"
+                        className="p-3 mb-2 bg-light d-flex justify-content-between align-center"
                         key={currentTemporalCondition.temporalItem + currentTemporalCondition.temporalOperator + currentTemporalCondition.temporalValue1 + currentTemporalCondition.temporalValue2}>
                         {index === 0 ? ("    ") : (<b><em>{currentTemporalCondition.temporalLink + " "}</em></b>)}
                         <em>{`"` + currentTemporalCondition.temporalItem + `" `}<b>{currentTemporalCondition.temporalOperator}</b>{` "` + currentTemporalCondition.temporalValue1 + `" ` + (currentTemporalCondition.temporalValue2 === "" ? "" : (`and "` + currentTemporalCondition.temporalValue2 + `"`))}</em>
@@ -825,18 +827,20 @@ Do you want to automatically set name?`)) {
                                 }
                             </select>
                             <button type="button"
-                                className="btn btn-success"
+                                className="btn btn-success mt-3"
                                 onClick={() => { this.onAddAthleteId() }}>
                                 Add
                             </button>
                             <button type="button"
-                                className="btn btn-outline-success ml-4"
-                                onClick={() => { this.onAddAllAthletesId() }}>
+                                className="btn btn-outline-success mt-3"
+                                onClick={() => { this.onAddAllAthletesId() }}
+                                style={{ marginLeft: '10px'}}>
                                 Add All
                             </button>
                             <button type="button"
-                                className="btn btn-outline-danger ml-4"
-                                onClick={() => { this.onRemoveAllAthletesId() }}>
+                                className="btn btn-outline-danger mt-3"
+                                onClick={() => { this.onRemoveAllAthletesId() }}
+                                style={{ marginLeft: '10px'}}>
                                 Remove All
                             </button>
                         </div>

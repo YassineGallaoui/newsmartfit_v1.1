@@ -12,7 +12,7 @@ export default class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <Link to={"/"} className="nav-link">Athletes List <span className="sr-only">(current)</span></Link>
+                            <Link to={"/"} className="nav-link">Athletes List</Link>
                         </li>
                         <li className="nav-item">
                             <Link to={"/rules"} className="nav-link">View Rules</Link>
