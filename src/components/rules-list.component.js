@@ -88,6 +88,8 @@ const RuleBigDiv = props => (
     </div>
 )
 
+const baseUrl = process.env.NODE_ENV === 'production' ? `https://newsmartfitv1.herokuapp.com:${process.env.PORT}` : `http://localhost:${process.env.PORT}`;
+
 export default class RulesList extends Component {
 
     constructor(props) {
