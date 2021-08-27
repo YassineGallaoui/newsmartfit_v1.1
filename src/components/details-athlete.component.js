@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { axios } from '../utils/axiosConfig.js';
 import Emoji from 'a11y-react-emoji'
 import Chart from "./charts.component"
 import DatePicker from 'react-datepicker'
