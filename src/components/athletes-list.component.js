@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { axios } from '../utils/axiosConfig.js';
+import { axiosApp } from '../utils/axiosConfig.js';
 
 const AthleteRow = props => (
     <tr>
@@ -22,7 +22,7 @@ export default class AthletesList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/athletes/')
+        axiosApp.get('/athletes/')
             .then(response => {
                 this.setState({ athletes: response.data })
             })

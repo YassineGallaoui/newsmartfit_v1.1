@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { axios } from '../utils/axiosConfig.js';
+import { axiosApp } from '../utils/axiosConfig.js';
 
 const RuleBigDiv = props => (
     <div className="row">
@@ -100,7 +100,7 @@ export default class RulesList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/rules/')
+        axiosApp.get('/rules/')
             .then(response => {
                 this.setState({ rules: response.data });
                 window.collapsibleDivs();
@@ -109,7 +109,7 @@ export default class RulesList extends Component {
                 console.log(error);
             })
 
-        axios.get('/athletes/')
+        axiosApp.get('/athletes/')
             .then(response => {
                 this.setState({ athletes: response.data });
             })
@@ -119,7 +119,7 @@ export default class RulesList extends Component {
     }
 
     deleteRule(id) {
-        axios.delete('/rules/' + id)
+        axiosApp.delete('/rules/' + id)
             .then(response => {
                 console.log("Rule " + id + " eliminated");
                 this.setState({
