@@ -74,7 +74,7 @@ export default class DetailsAthlete extends Component {
     }
 
     componentDidMount() {
-        axios.get('/athletes/' + this.props.match.params.id)
+        axios.get(baseUrl+'/athletes/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     id: response.data._id,
@@ -99,7 +99,7 @@ export default class DetailsAthlete extends Component {
                 console.log(error);
             })
 
-        axios.get('/rules/')
+        axios.get(baseUrl+'/rules/')
             .then(response => {
                 this.setState({ rules: response.data });
             })

@@ -100,7 +100,7 @@ export default class RulesList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/rules/')
+        axios.get(baseUrl+'/rules/')
             .then(response => {
                 this.setState({ rules: response.data });
                 window.collapsibleDivs();
@@ -109,7 +109,7 @@ export default class RulesList extends Component {
                 console.log(error);
             })
 
-        axios.get('/athletes/')
+        axios.get(baseUrl+'/athletes/')
             .then(response => {
                 this.setState({ athletes: response.data });
             })
@@ -119,7 +119,7 @@ export default class RulesList extends Component {
     }
 
     deleteRule(id) {
-        axios.delete('/rules/' + id)
+        axios.delete(baseUrl+'/rules/' + id)
             .then(response => {
                 console.log("Rule " + id + " eliminated");
                 this.setState({

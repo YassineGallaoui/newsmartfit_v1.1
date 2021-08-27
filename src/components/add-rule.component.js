@@ -5,7 +5,7 @@ let exampleText = `You should:
         - second tip
         - ...
         `
-
+const baseUrl = process.env.NODE_ENV === 'production' ? `https://newsmartfitv1.herokuapp.com:${process.env.PORT}` : `http://localhost:${process.env.PORT}`;
 export default class AddRule extends Component {
     constructor(props) {
         super(props);
@@ -65,7 +65,7 @@ export default class AddRule extends Component {
     }
 
     componentDidMount() {
-        axios.get('/athletes/')
+        axios.get(baseUrl+'/athletes/')
             .then(response => {
                 this.setState({ firstAthletesList: response.data, permanentAthletesList: response.data })
             })
@@ -73,7 +73,7 @@ export default class AddRule extends Component {
                 console.log(error);
             })
 
-        axios.get('/rules/')
+        axios.get(baseUrl+'/rules/')
             .then(response => {
                 this.setState({ alreadyExistingRules: response.data });
             })
@@ -170,7 +170,7 @@ export default class AddRule extends Component {
             this.setState({ athletesId: athletesIDCopy });
         }
         let f = e.substring(e.indexOf("~ ") + 2);
-        axios.get('/athletes/' + f)
+        axios.get(baseUrl+'/athletes/' + f)
             .then(response => {
                 this.setState({ firstAthletesList: this.state.firstAthletesList.concat(response.data) })
             })
@@ -187,7 +187,7 @@ export default class AddRule extends Component {
             console.log(athletesIDCopy[0]);
             athletesIDCopy.splice(0, 1);
             let athId = str.substring(str.indexOf("~ ") + 2);
-            axios.get('/athletes/' + athId)
+            axios.get(baseUrl+'/athletes/' + athId)
                 .then(response => {
                     this.setState({ firstAthletesList: this.state.firstAthletesList.concat(response.data) })
                 })
@@ -439,7 +439,7 @@ export default class AddRule extends Component {
                 value2: val2
             }
 
-            axios.post('/athletes/ask', condition)
+            axios.post(baseUrl+'/athletes/ask', condition)
                 .then(response => {
                     if (this.state.conditions.length === 1 || link === "") {
                         this.setState({ askResult: response.data });
@@ -759,7 +759,7 @@ Do you want to automatically set name?`)) {
                     message: this.state.message
                 }
 
-                axios.post('/rules/add/', rule)
+                axios.post(baseUrl+'/rules/add/', rule)
                     .then(res => alert("Rule added!"))
             } else {//ALTRIMENTI ESCO COSÌ L'UTENTE PUÒ SETTARE IL NOME CHE VUOLE
                 return;
@@ -775,7 +775,7 @@ Do you want to automatically set name?`)) {
                 message: this.state.message
             }
 
-            axios.post('/rules/add/', rule)
+            axios.post(baseUrl+'/rules/add/', rule)
                 .then(res => {
                     alert("Rule added!");
                 })

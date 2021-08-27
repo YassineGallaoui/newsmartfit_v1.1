@@ -22,7 +22,7 @@ export default class AthletesList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/athletes/')
+        axios.get(baseUrl+'/athletes/')
             .then(response => {
                 this.setState({ athletes: response.data })
             })
