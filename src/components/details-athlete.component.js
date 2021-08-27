@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { axiosApp } from '../utils/axiosConfig.js';
+import axios from 'axios';
 import Emoji from 'a11y-react-emoji'
 import Chart from "./charts.component"
 import DatePicker from 'react-datepicker'
@@ -74,7 +74,7 @@ export default class DetailsAthlete extends Component {
     }
 
     componentDidMount() {
-        axiosApp.get('/athletes/' + this.props.match.params.id)
+        axios.get('/athletes/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     id: response.data._id,
@@ -99,7 +99,7 @@ export default class DetailsAthlete extends Component {
                 console.log(error);
             })
 
-            axiosApp.get('/rules/')
+        axios.get('/rules/')
             .then(response => {
                 this.setState({ rules: response.data });
             })

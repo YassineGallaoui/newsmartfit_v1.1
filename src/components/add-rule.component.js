@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { axiosAppApp } from '../utils/axiosConfig.js';
+import axios from 'axios';
 let exampleText = `You should:
         - first tip
         - second tip
@@ -65,7 +65,7 @@ export default class AddRule extends Component {
     }
 
     componentDidMount() {
-        axiosApp.get('/athletes/')
+        axios.get('/athletes/')
             .then(response => {
                 this.setState({ firstAthletesList: response.data, permanentAthletesList: response.data })
             })
@@ -73,7 +73,7 @@ export default class AddRule extends Component {
                 console.log(error);
             })
 
-        axiosApp.get('/rules/')
+        axios.get('/rules/')
             .then(response => {
                 this.setState({ alreadyExistingRules: response.data });
             })
@@ -170,7 +170,7 @@ export default class AddRule extends Component {
             this.setState({ athletesId: athletesIDCopy });
         }
         let f = e.substring(e.indexOf("~ ") + 2);
-        axiosApp.get('/athletes/' + f)
+        axios.get('/athletes/' + f)
             .then(response => {
                 this.setState({ firstAthletesList: this.state.firstAthletesList.concat(response.data) })
             })
@@ -187,7 +187,7 @@ export default class AddRule extends Component {
             console.log(athletesIDCopy[0]);
             athletesIDCopy.splice(0, 1);
             let athId = str.substring(str.indexOf("~ ") + 2);
-            axiosApp.get('/athletes/' + athId)
+            axios.get('/athletes/' + athId)
                 .then(response => {
                     this.setState({ firstAthletesList: this.state.firstAthletesList.concat(response.data) })
                 })
@@ -439,7 +439,7 @@ export default class AddRule extends Component {
                 value2: val2
             }
 
-            axiosApp.post('/athletes/ask', condition)
+            axios.post('/athletes/ask', condition)
                 .then(response => {
                     if (this.state.conditions.length === 1 || link === "") {
                         this.setState({ askResult: response.data });
@@ -759,7 +759,7 @@ Do you want to automatically set name?`)) {
                     message: this.state.message
                 }
 
-                axiosApp.post('/rules/add/', rule)
+                axios.post('/rules/add/', rule)
                     .then(res => alert("Rule added!"))
             } else {//ALTRIMENTI ESCO COSÌ L'UTENTE PUÒ SETTARE IL NOME CHE VUOLE
                 return;
@@ -775,7 +775,7 @@ Do you want to automatically set name?`)) {
                 message: this.state.message
             }
 
-            axiosApp.post('/rules/add/', rule)
+            axios.post('/rules/add/', rule)
                 .then(res => {
                     alert("Rule added!");
                 })

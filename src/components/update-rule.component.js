@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { axios } from '../utils/axiosConfig.js';
+import axios from 'axios';
 let exampleText = `You should:
         - first tip
         - second tip
