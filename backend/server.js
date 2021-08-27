@@ -28,6 +28,8 @@ connection.once('open', () => {
 })
 
 
+app.get('/ciao', (req, res) => { res.send('Ciao carissimo!')})
+
 
 // HTTP REQUEST LOGGER
 const athleteRouter = require('./routes/athletes');
@@ -41,7 +43,6 @@ app.use('/rules', rulesRouter);
 // Step 1:
 app.use(express.static(path.resolve(__dirname, "./build")));
 // Step 2:
-app.get('/ciao', (req, res) => { res.send('Ciao carissimo!')})
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./build", "index.html"));
 });
