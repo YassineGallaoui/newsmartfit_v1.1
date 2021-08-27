@@ -1,14 +1,12 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-let s = "";
-
+console.log(process.env.NODE_ENV)
 if(process.env.NODE_ENV !== "production") {
-  s = 'http://newsmartfitv1.herokuapp.com:' + (process.env.PORT || 5000)
   module.exports = function(app) {
     app.use(
       '/athletes',
       createProxyMiddleware({
-        target: s,
+        target: 'http://127.0.0.1:5000',
         changeOrigin: true,
       })
     );
@@ -16,26 +14,7 @@ if(process.env.NODE_ENV !== "production") {
     app.use(
       '/rules',
       createProxyMiddleware({
-        target: s,
-        changeOrigin: true,
-      })
-    );
-  };
-} else {
-  s = 'http://newsmartfitv1.herokuapp.com:' + (process.env.PORT || 5000)
-  module.exports = function(app) {
-    app.use(
-      '/athletes',
-      createProxyMiddleware({
-        target: s,
-        changeOrigin: true,
-      })
-    );
-  
-    app.use(
-      '/rules',
-      createProxyMiddleware({
-        target: s,
+        target: 'http://127.0.0.1:5000',
         changeOrigin: true,
       })
     );
