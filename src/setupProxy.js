@@ -1,7 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-console.log("ciao, il node inv è: " + process.env.NODE_ENV)
-if(process.env.NODE_ENV !== "production") {
+if(process.env.NODE_ENV.toLowerCase() !== "production") {
   module.exports = function(app) {
     app.use(
       '/athletes',
