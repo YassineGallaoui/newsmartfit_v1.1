@@ -1,6 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-if(process.env.NODE_ENV.toLowerCase() !== "production") {
+/* if(process.env.NODE_ENV.toLowerCase() !== "production") {
   module.exports = function(app) {
     app.use(
       '/athletes',
@@ -18,4 +18,4 @@ if(process.env.NODE_ENV.toLowerCase() !== "production") {
       })
     );
   };
-}
+} */
