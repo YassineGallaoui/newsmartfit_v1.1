@@ -1,3 +1,3 @@
-**Project no longer mantained.**
+**Project no longer maintained.**
 
 Bachelor's degree project
